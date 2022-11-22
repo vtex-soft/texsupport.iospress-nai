@@ -3,6 +3,7 @@
 %% LaTeX 2e class file for articles in the journals:
 %%   Journal of Ambient Intelligence and Smart Environments (AIS)
 %%   Semantic Web (SW)
+%%   Neurosymbolic Artificial Intelligence (NAI)
 %%   Web Intelligence (WEB)
 %%   Journal of Clinical Speech and Language Studies (ACS)
 %%   Journal of Smart Cities and Society (SCS)
@@ -70,8 +71,8 @@
 %%
 
 \def\fmt@name{iosart2x}
-\def\fmt@date{2022/09/12}
-\def\fmt@version{1.3.50}
+\def\fmt@date{2022/11/22}
+\def\fmt@version{1.3.51}
 \NeedsTeXFormat{LaTeX2e}[2000/01/26]
 \ProvidesClass\fmt@name
               [\fmt@date\space v\fmt@version\space IOS Press]
@@ -220,6 +221,16 @@
   \gdef\@eissn{2210-4968}%
   \gdef\@price{35.00}%
   \gdef\@journal{Semantic Web}%
+  \global\@twocolumnfalse \global\@restonecoltrue
+  \gdef\ios@journal@layout{0}%
+  }
+\DeclareOption{nai}{%
+  \gdef\@jid{nai}%
+  \gdef\@JID{NAI}%
+  \gdef\@issn{2949-8732}%
+  \gdef\@eissn{2949-8732}%
+  \gdef\@price{35.00}%
+  \gdef\@journal{Neurosymbolic Artificial Intelligence}%
   \global\@twocolumnfalse \global\@restonecoltrue
   \gdef\ios@journal@layout{0}%
   }
@@ -1193,6 +1204,7 @@
   \dsreview@postskip=6\p@
   \AtEndOfClass{\mathindent=2em}%
   }
+\let\init@ios@journal@NAI@settings\init@ios@journal@SW@settings
 \def\init@ios@journal@WEB@settings{%
   \AtEndOfClass{\mathindent=2em}%
   }
@@ -3173,7 +3185,7 @@
       }%
   \fi
   }
-\docsvlist{ais,aic,sw,web,scs}%
+\docsvlist{ais,aic,sw,nai,web,scs}%
 
 \def\fm@textsuperscript#1{%
   \textsuperscript{\upshape #1}%
