@@ -639,6 +639,7 @@
   \def\acceptedby@postfix{\par}%
   \def\communicated@postfix{\par}%
   \def\published@postfix{\par}%
+  \def\pubonline@postfix{\par}%
   \def\received@postfix{\par}%
   \def\revised@postfix{\par}%
   \def\submitted@postfix{\par}%
@@ -987,6 +988,7 @@
   \def\communicated@postfix{}%
   \def\dedicated@postfix{}%
   \def\published@postfix{}%
+  \def\pubonline@postfix{}%
   \def\received@postfix{}%
   \def\revised@postfix{}%
   \def\submitted@postfix{}%
@@ -998,6 +1000,7 @@
       \def\communicated@prefix{; communicated~}%
       \def\dedicated@prefix{; dedicated~}%
       \def\published@prefix{; published~}%
+      \def\pubonline@prefix{; published~}%
       \def\received@prefix{; received~}%
       \def\revised@prefix{; revised~}%
       \def\submitted@prefix{; submitted~}%
@@ -2873,6 +2876,15 @@
   \fi
   }
 \def\@published{\@nil}
+\def\pubonline#1{%
+  \def\@tempa{#1}%
+  \ifx\@tempa\@empty
+  \else
+    \gdef\@pubonline{#1}%
+    \global\@historytrue
+  \fi
+  }
+\def\@pubonline{\@nil}
 \def\received#1{%
   \def\@tempa{#1}%
   \ifx\@tempa\@empty
@@ -2907,6 +2919,7 @@
 \def\acceptedby@prefix{Accepted~by:~}
 \def\communicated@prefix{Communicated~by~}
 \def\published@prefix{Published~}
+\def\pubonline@prefix{Published~}
 \def\received@prefix{Received~}
 \def\revised@prefix{Revised~}
 \def\submitted@prefix{Submitted~}
@@ -2961,6 +2974,11 @@
     \ifx\@published\empty@data
     \else
       \published@prefix\@published\published@postfix
+      \upd@hist@prefices
+    \fi
+    \ifx\@pubonline\empty@data
+    \else
+      \pubonline@prefix\@pubonline\pubonline@postfix
       \upd@hist@prefices
     \fi
     \history@postfix
